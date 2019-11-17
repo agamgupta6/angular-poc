@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TabServiceService } from './tab-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-tab-container';
+
+  constructor(private tabService: TabServiceService){
+
+  }
+  addComponentToTabs(label,componentName){
+    this.tabService.changeData({
+      label: label,
+      component: componentName
+  });
+}
+
 }
